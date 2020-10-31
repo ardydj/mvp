@@ -37,3 +37,6 @@ bower_components/
 
 # DS Store
 .DS_Store
+
+# VS Code
+.vscode/
