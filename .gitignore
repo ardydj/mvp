@@ -1,5 +1,6 @@
 ### node etc ###
-
+# Package JSON
+package-lock.json
 # Logs
 logs
 *.log
@@ -33,3 +34,6 @@ bower_components/
 .floobit
 .floo
 .flooignore
+
+# DS Store
+.DS_Store
