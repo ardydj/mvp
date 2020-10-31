@@ -1,4 +1,4 @@
-# Project Name #
+# SecondNature #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,22 +17,27 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > A habit tracker app that helps you stay on top of new habits you are trying to start until they become second nature
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  This is app is for anyone who as struggled trying to form good habits or eliminate bad ones with a simple and convenient to stay on top of your progress. 
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  If you have ever tried to form a new habit or get rid of a bad habit, you know how hard it is to keep going and not give up. The first step to forming a new habit is being tracking your progress every day so you can assess how you are doing and if you need to make any adjustments. This app will use the 2-day rule to make sure you succeeding without being too hard on yourself because we know "life happens" and no one is perfect. 
 
 ## Problem ##
   > Describe the problem your product solves.
+  If you start a new habit but find yourself giving up after the first week and going back to your old ways, this app is for you! If you get discouraged because you are missing days or lose motivation. 
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  Get daily advice on how to stay motivated and track your progress. Best part is you can have "off" days because SecondNature knows no one is perfect. All you need to do is not miss 2 in a row.  
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  We all know of things that we could improve in our lives. The hardest part of creating real change is not getting started but not giving up before our new habit becomes second nature. 
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
