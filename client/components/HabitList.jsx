@@ -1,9 +1,11 @@
 import React from 'react';
+import HabitListItem from './HabitListItem.jsx';
 
 const HabitList = (props) => {
   return (
     <div>
-      <div>Habit List</div>
+      <div>percent</div>
+      <HabitListItem />
     </div>
   );
 };
