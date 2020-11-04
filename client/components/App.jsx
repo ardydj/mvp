@@ -1,4 +1,5 @@
 import React from 'react';
+import HabitList from './HabitList.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -11,7 +12,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>Resolute</h1>
+        <h3>Today</h3>
+        <HabitList />
       </div>
     );
   }
