@@ -33,3 +33,14 @@
   justify-self: center;
   align-self: center;
 }
+
+#habit-container {
+  display: grid;
+}
+#habit-container div {
+  justify-self: center;
+}
+
+#success-rate {
+  padding: 3%;
+}
