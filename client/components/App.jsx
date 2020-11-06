@@ -57,6 +57,9 @@ class App extends React.Component {
     this.setState({
       habitList: this.state.habitList
     });
+    if (this.state.habitList[index].streak <= -2) {
+      this.handleShowModal();
+    }
   }
 
   countSuccessRate() {
@@ -78,7 +81,7 @@ class App extends React.Component {
       return (
         <div>
           <h1>Resolute</h1>
-          <h3 onClick={this.handleShowModal}>Today</h3>
+          <h3>Today</h3>
 
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
