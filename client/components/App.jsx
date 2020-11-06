@@ -28,7 +28,7 @@ class App extends React.Component {
       <div>
         <h1>Resolute</h1>
         <h3>Today</h3>
-        <HabitList />
+        <HabitList habits={this.state.habitList}/>
       </div>
     );
   }
