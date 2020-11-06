@@ -53,7 +53,7 @@
 
 #habit-items {
   display: grid;
-  grid-template-rows: 2fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   margin-bottom: 2%;
   width: 75%;
 }
@@ -77,4 +77,15 @@ button:hover {
 
 .habit-button {
   justify-self: center;
+  align-self: center;
+}
+
+.habit-title {
+  font-size: 20;
+  color: white;
+}
+
+.habit-streak {
+  align-self: center;
+  color: white;
 }
