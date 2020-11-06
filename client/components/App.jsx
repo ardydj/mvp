@@ -82,9 +82,13 @@ class App extends React.Component {
     if (this.state.isLoaded) {
       return (
         <div>
-          <h1>Resolute</h1>
+          <div>
+            <h1>Resolute</h1>
+            <h3>reflection</h3>
+            <h3>performance</h3>
+            <h3>account</h3>
+          </div>
           <h3>Today</h3>
-
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
             <Modal.Header closeButton>
