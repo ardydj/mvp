@@ -2,13 +2,13 @@ import React from 'react';
 
 const HabitListItem = (props) => {
   return (
-    <div>
-      <div>
+    <div className="individual-habit">
+        <div>
         {props.habitItem.title}
-        <span><button onClick={() => {props.handleCheckMark(props.habitIndex)}}>√</button></span>
-        <span><button onClick={() => {props.handleCrossMark(props.habitIndex)}}>X</button></span>
-        <span>Streak: {props.habitItem.streak} days</span>
-      </div>
+        </div>
+        <button className="habit-button" onClick={() => {props.handleCheckMark(props.habitIndex)}}>√</button>
+        <button className="habit-button" onClick={() => {props.handleCrossMark(props.habitIndex)}}>X</button>
+        <div>Streak: {props.habitItem.streak} days</div>
     </div>
   );
 }

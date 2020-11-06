@@ -55,4 +55,26 @@
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr;
   margin-bottom: 2%;
+  width: 75%;
+}
+
+button {
+  background-color: white;
+  border: none;
+  border-radius: 35%;
+}
+
+button:hover {
+  background-color: lightsalmon;
+}
+
+.individual-habit {
+  display: grid;
+  grid-template-columns: 2fr .3fr .3fr 1fr;
+  height: 10%;
+  width: 75%;
+}
+
+.habit-button {
+  justify-self: center;
 }
