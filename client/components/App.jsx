@@ -63,6 +63,7 @@ class App extends React.Component {
         <div>
           <h1>Resolute</h1>
           <h3>Today</h3>
+          <Button></Button>
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
         </div>
       );
