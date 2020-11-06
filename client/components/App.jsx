@@ -9,7 +9,8 @@ class App extends React.Component {
     this.state = {
       habitList: [],
       isLoaded: false,
-      showModal: false
+      showModal: false,
+      index: 0
     }
     this.countSuccessRate = this.countSuccessRate.bind(this);
     this.handleCheckMark = this.handleCheckMark.bind(this);
@@ -55,7 +56,8 @@ class App extends React.Component {
     this.state.habitList[index].checked = false;
     this.state.habitList[index].streak--;
     this.setState({
-      habitList: this.state.habitList
+      habitList: this.state.habitList,
+      index: index
     });
     if (this.state.habitList[index].streak <= -2) {
       this.handleShowModal();
@@ -88,7 +90,7 @@ class App extends React.Component {
             <Modal.Header closeButton>
               <strong>Why Are You Doing This?</strong>
             </Modal.Header>
-            <Modal.Body>{this.state.habitList[0].statement}</Modal.Body>
+            <Modal.Body>{this.state.habitList[this.state.index].statement}</Modal.Body>
             <Modal.Footer>
               <button onClick={this.handleCloseModal}>Close</button>
             </Modal.Footer>
