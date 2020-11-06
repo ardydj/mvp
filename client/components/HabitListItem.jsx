@@ -5,10 +5,10 @@ const HabitListItem = (props) => {
     <div>
       <div>
         Habit 1
+        <span><button>√</button></span>
+        <span><button>X</button></span>
+        <span>Streak</span>
       </div>
-      <button>√</button>
-      <button>X</button>
-      <div>Streak</div>
     </div>
   );
 }
