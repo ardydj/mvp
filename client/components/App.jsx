@@ -99,11 +99,14 @@ class App extends React.Component {
             <h3 className="nav-items">performance</h3>
             <h3 className="nav-items">account</h3>
           </div>
-          <div id="dates">
-            <h3 className="today">Today</h3>
+          <div className="header">
+            <h3 className="header-title">Quote Of Day</h3>
           </div>
           <div id="quote-container">
-            <div className="quote-of-day">{this.state.quoteOfDay}</div>
+          <div className="quote-of-day">{this.state.quoteOfDay}</div>
+          </div>
+          <div className="header">
+            <h3 className="header-title">Today</h3>
           </div>
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
