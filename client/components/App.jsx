@@ -83,10 +83,10 @@ class App extends React.Component {
       return (
         <div>
           <div id="nav">
-            <h1>Resolute</h1>
-            <h3>reflection</h3>
-            <h3>performance</h3>
-            <h3>account</h3>
+            <h1 id="title">Resolute</h1>
+            <h3 className="nav-items">reflection</h3>
+            <h3 className="nav-items">performance</h3>
+            <h3 className="nav-items">account</h3>
           </div>
           <h3>Today</h3>
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
