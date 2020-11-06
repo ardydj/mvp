@@ -89,3 +89,13 @@ button:hover {
   align-self: center;
   color: white;
 }
+
+#quote-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.quote-of-day {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
