@@ -88,7 +88,10 @@ class App extends React.Component {
             <h3 className="nav-items">performance</h3>
             <h3 className="nav-items">account</h3>
           </div>
-          <h3>Today</h3>
+          <div id="dates">
+            <h3 className="today">Today</h3>
+          </div>
+
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
             <Modal.Header closeButton>

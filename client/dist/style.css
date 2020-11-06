@@ -16,3 +16,10 @@
   justify-self: center;
   align-self: center;
 }
+#dates {
+  display: grid;
+}
+
+.today {
+  justify-self: center;
+}
