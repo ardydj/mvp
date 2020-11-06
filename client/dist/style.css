@@ -36,6 +36,9 @@
 
 #habit-container {
   display: grid;
+  background-color: lightsalmon;
+  border-left: 100px solid white;
+  border-right: 100px solid white;
 }
 #habit-container div {
   justify-self: center;
@@ -43,9 +46,13 @@
 
 #success-rate {
   padding: 3%;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 #habit-items {
   display: grid;
   grid-template-rows: 2fr 2fr 2fr 1fr;
+  margin-bottom: 2%;
 }
