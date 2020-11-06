@@ -102,8 +102,8 @@ class App extends React.Component {
           <div id="dates">
             <h3 className="today">Today</h3>
           </div>
-          <div>
-            <div>{this.state.quoteOfDay}</div>
+          <div id="quote-container">
+            <div className="quote-of-day">{this.state.quoteOfDay}</div>
           </div>
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
