@@ -13,7 +13,9 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/api/habits')
       .then((response) => {
-        console.log(response.data);
+        this.setState({
+          habitList: response.data
+        })
       })
       .catch((error) => {
         console.error(error);
@@ -21,6 +23,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.habitList)
     return (
       <div>
         <h1>Resolute</h1>
