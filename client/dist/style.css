@@ -93,9 +93,17 @@ button:hover {
 #quote-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-left: 100px solid white;
+  border-right: 100px solid white;
+  height: 10%;
+  background-color: lightsalmon;
+  margin-bottom: 7%;
 }
 
 .quote-of-day {
   grid-column-start: 2;
   grid-column-end: 4;
+  align-self: center;
+  color: white;
+  font-size: 17;
 }
