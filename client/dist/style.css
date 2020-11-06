@@ -18,8 +18,10 @@
 }
 #dates {
   display: grid;
+  height: 7%;
 }
 
 .today {
   justify-self: center;
+  align-self: center;
 }
