@@ -6,7 +6,7 @@ const HabitList = (props) => {
   return (
     <div>
       <div>Success Rate: {props.successCompute()}%</div>
-      {props.habits.map((habit) => <HabitListItem habitItem={habit} key={habit}/>)}
+      <div>{props.habits.map((habit) => <HabitListItem habitItem={habit} key={habit}/>)}</div>
     </div>
   );
 };
