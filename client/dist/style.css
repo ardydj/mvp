@@ -11,10 +11,18 @@
   color: white;
 }
 
+#title:hover {
+  color: black;
+}
+
 .nav-items {
   color: white;
   justify-self: center;
   align-self: center;
+}
+
+.nav-items:hover {
+  color: black;
 }
 #dates {
   display: grid;
