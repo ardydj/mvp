@@ -1,17 +1,21 @@
 import React from 'react';
 import HabitList from './HabitList.jsx';
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       habitList: [],
-      isLoaded: false
+      isLoaded: false,
+      showModal: false
     }
     this.countSuccessRate = this.countSuccessRate.bind(this);
     this.handleCheckMark = this.handleCheckMark.bind(this);
     this.handleCrossMark = this.handleCrossMark.bind(this);
+    this.handleShowModal = this.handleShowModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +31,18 @@ class App extends React.Component {
       });
   }
 
+  handleShowModal() {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  handleCloseModal() {
+    this.setState({
+      showModal: false
+    })
+  }
+
   handleCheckMark(index) {
     this.state.habitList[index].checked = true;
     this.state.habitList[index].streak++;
@@ -34,6 +50,7 @@ class App extends React.Component {
       habitList: this.state.habitList
     });
   }
+
   handleCrossMark(index) {
     this.state.habitList[index].checked = false;
     this.state.habitList[index].streak--;
@@ -46,7 +63,6 @@ class App extends React.Component {
     let pass = 0;
     let total = this.state.habitList.length;
     this.state.habitList.forEach((habit) => {
-      console.log(habit.checked)
       if (habit.checked) {
         pass++;
       }
@@ -62,9 +78,18 @@ class App extends React.Component {
       return (
         <div>
           <h1>Resolute</h1>
-          <h3>Today</h3>
-          <Button></Button>
+          <h3 onClick={this.handleShowModal}>Today</h3>
+
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
+          <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
+            <Modal.Header closeButton>
+              <strong>Why Are You Doing This?</strong>
+            </Modal.Header>
+            <Modal.Body>{this.state.habitList[0].statement}</Modal.Body>
+            <Modal.Footer>
+              <button onClick={this.handleCloseModal}>Close</button>
+            </Modal.Footer>
+          </Modal>
         </div>
       );
     } else {
