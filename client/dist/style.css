@@ -24,12 +24,12 @@
 .nav-items:hover {
   color: black;
 }
-#dates {
+.header {
   display: grid;
   height: 7%;
 }
 
-.today {
+.header-title {
   justify-self: center;
   align-self: center;
 }
@@ -97,7 +97,6 @@ button:hover {
   border-right: 100px solid white;
   height: 10%;
   background-color: lightsalmon;
-  margin-bottom: 7%;
 }
 
 .quote-of-day {
