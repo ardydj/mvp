@@ -23,4 +23,6 @@ const Habits = [
     checked: false,
     statement: 'You cannot give up because this is causing you to gain a lot weigth and along with not exercising, this is not good for your health'
   }
-]
+];
+
+module.exports = Habits
