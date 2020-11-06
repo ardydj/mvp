@@ -6,15 +6,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      habitList: []
+      habitList: [],
+      isLoaded: false
     }
+    this.countSuccessRate = this.countSuccessRate.bind(this);
   }
 
   componentDidMount() {
     axios.get('/api/habits')
       .then((response) => {
         this.setState({
-          habitList: response.data
+          habitList: response.data,
+          isLoaded: true
         })
       })
       .catch((error) => {
@@ -22,15 +25,36 @@ class App extends React.Component {
       });
   }
 
+
+  countSuccessRate() {
+    let pass = 0;
+    let total = this.state.habitList.length;
+    this.state.habitList.forEach((habit) => {
+      console.log(habit.checked)
+      if (habit.checked) {
+        pass++;
+      }
+    });
+    let success = pass/total * 100;
+    return success;
+  }
+
   render() {
     console.log(this.state.habitList)
-    return (
-      <div>
-        <h1>Resolute</h1>
-        <h3>Today</h3>
-        <HabitList habits={this.state.habitList}/>
-      </div>
-    );
+    console.log(this.state.habitList.length)
+    if (this.state.isLoaded) {
+      return (
+        <div>
+          <h1>Resolute</h1>
+          <h3>Today</h3>
+          <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate}/>
+        </div>
+      );
+    } else {
+      return (
+        <div>Loading...</div>
+      );
+    }
   }
 }
 
