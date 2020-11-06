@@ -44,3 +44,8 @@
 #success-rate {
   padding: 3%;
 }
+
+#habit-items {
+  display: grid;
+  grid-template-rows: 2fr 2fr 2fr 1fr;
+}

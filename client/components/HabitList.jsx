@@ -6,7 +6,7 @@ const HabitList = (props) => {
   return (
     <div id="habit-container">
       <div id="success-rate">Success Rate: {props.successCompute()}%</div>
-      <div>{props.habits.map((habit, index) => <HabitListItem habitItem={habit} key={habit.title} habitIndex={index} handleCheckMark={props.handleCheckMark} handleCrossMark={props.handleCrossMark}/>)}</div>
+      <div id="habit-items">{props.habits.map((habit, index) => <HabitListItem habitItem={habit} key={habit.title} habitIndex={index} handleCheckMark={props.handleCheckMark} handleCrossMark={props.handleCrossMark}/>)}</div>
     </div>
   );
 };
