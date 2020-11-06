@@ -13,7 +13,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/api/habits')
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
