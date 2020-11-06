@@ -1,5 +1,6 @@
 import React from 'react';
 import HabitList from './HabitList.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor() {
@@ -7,6 +8,16 @@ class App extends React.Component {
     this.state = {
       habitList: []
     }
+  }
+
+  componentDidMount() {
+    axios.get('/api/habits')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   render() {
