@@ -1,4 +1,15 @@
 #nav {
   display: grid;
   grid-template-columns: 3fr 1fr 1fr 1fr;
+  height: 5%;
+}
+
+#title {
+  align-self: center;
+  margin-left: 2%;
+}
+
+.nav-items {
+  justify-self: center;
+  align-self: center;
 }
