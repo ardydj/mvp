@@ -27,7 +27,11 @@ class App extends React.Component {
   }
 
   handleCheckMark(index) {
-    console.log(index);
+    this.state.habitList[index].checked = true;
+    this.state.habitList[index].streak++;
+    this.setState({
+      habitList: this.state.habitList
+    });
   }
   countSuccessRate() {
     let pass = 0;
