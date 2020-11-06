@@ -82,7 +82,7 @@ class App extends React.Component {
     if (this.state.isLoaded) {
       return (
         <div>
-          <div>
+          <div id="nav">
             <h1>Resolute</h1>
             <h3>reflection</h3>
             <h3>performance</h3>
