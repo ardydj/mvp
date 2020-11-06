@@ -10,7 +10,8 @@ class App extends React.Component {
       habitList: [],
       isLoaded: false,
       showModal: false,
-      index: 0
+      index: 0,
+      quoteOfDay: ''
     }
     this.countSuccessRate = this.countSuccessRate.bind(this);
     this.handleCheckMark = this.handleCheckMark.bind(this);
@@ -30,6 +31,16 @@ class App extends React.Component {
       .catch((error) => {
         console.error(error);
       });
+    axios.get('https://quotes.rest/qod?category=inspire&language=en')
+      .then((response) => {
+        this.setState({
+          quoteOfDay: response.data.contents.quotes[0].quote
+        })
+        console.log(this.state.quoteOfDay)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   handleShowModal() {
@@ -91,7 +102,9 @@ class App extends React.Component {
           <div id="dates">
             <h3 className="today">Today</h3>
           </div>
-
+          <div>
+            <div>{this.state.quoteOfDay}</div>
+          </div>
           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
             <Modal.Header closeButton>
