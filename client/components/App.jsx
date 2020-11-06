@@ -11,6 +11,7 @@ class App extends React.Component {
     }
     this.countSuccessRate = this.countSuccessRate.bind(this);
     this.handleCheckMark = this.handleCheckMark.bind(this);
+    this.handleCrossMark = this.handleCrossMark.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,14 @@ class App extends React.Component {
       habitList: this.state.habitList
     });
   }
+  handleCrossMark(index) {
+    this.state.habitList[index].checked = false;
+    this.state.habitList[index].streak--;
+    this.setState({
+      habitList: this.state.habitList
+    });
+  }
+
   countSuccessRate() {
     let pass = 0;
     let total = this.state.habitList.length;
@@ -54,7 +63,7 @@ class App extends React.Component {
         <div>
           <h1>Resolute</h1>
           <h3>Today</h3>
-          <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark}/>
+          <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
         </div>
       );
     } else {
