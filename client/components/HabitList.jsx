@@ -4,7 +4,7 @@ import HabitListItem from './HabitListItem.jsx';
 const HabitList = (props) => {
   return (
     <div>
-      <div>percent</div>
+      <div>Success Rate: </div>
       <HabitListItem />
     </div>
   );
