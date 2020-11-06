@@ -7,9 +7,10 @@ app.use(express.static(path.join(__dirname, '/../client/dist')))
 
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//   res.send('hello world');
-// });
+app.get('/api/habits', (req, res) => {
+  res.send('hello world');
+});
+
 app.listen(port, () => {
   console.log(`server listening at port ${port}`)
 })
