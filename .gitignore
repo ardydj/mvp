@@ -39,7 +39,11 @@ bower_components/
 .DS_Store
 
 # VS Code
+<<<<<<< HEAD
 .vscode/
 
 # EC2 Key
 ResoluteKeyPair.pem.txt
+=======
+.vscode/
+>>>>>>> 6a6e670a5032279ba627bb80cc0a1c2c5fe153f2
