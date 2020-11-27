@@ -42,4 +42,5 @@ bower_components/
 .vscode/
 
 # EC2 Key
-ResoluteKeyPair.pem.txt
+ResoluteKeyPair.pem
+
