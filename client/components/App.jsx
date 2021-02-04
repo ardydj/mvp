@@ -3,130 +3,145 @@ import HabitList from './HabitList.jsx';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      habitList: [],
-      isLoaded: false,
-      showModal: false,
-      index: 0,
-      quoteOfDay: ''
-    }
-    this.countSuccessRate = this.countSuccessRate.bind(this);
-    this.handleCheckMark = this.handleCheckMark.bind(this);
-    this.handleCrossMark = this.handleCrossMark.bind(this);
-    this.handleShowModal = this.handleShowModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
+const App = () => {
+  const [habitList, setHabitList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [quoteOfDay, setQuoteOfDay] = useState('');
 
-  componentDidMount() {
-    axios.get('/api/habits')
-      .then((response) => {
-        this.setState({
-          habitList: response.data,
-          isLoaded: true
-        })
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    axios.get('https://quotes.rest/qod?category=inspire&language=en')
-      .then((response) => {
-        this.setState({
-          quoteOfDay: response.data.contents.quotes[0].quote
-        })
-        console.log(this.state.quoteOfDay)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-  }
-
-  handleShowModal() {
-    this.setState({
-      showModal: true
-    })
-  }
-
-  handleCloseModal() {
-    this.setState({
-      showModal: false
-    })
-  }
-
-  handleCheckMark(index) {
-    this.state.habitList[index].checked = true;
-    this.state.habitList[index].streak++;
-    this.setState({
-      habitList: this.state.habitList
-    });
-  }
-
-  handleCrossMark(index) {
-    this.state.habitList[index].checked = false;
-    this.state.habitList[index].streak--;
-    this.setState({
-      habitList: this.state.habitList,
-      index: index
-    });
-    if (this.state.habitList[index].streak <= -2) {
-      this.handleShowModal();
-    }
-  }
-
-  countSuccessRate() {
-    let pass = 0;
-    let total = this.state.habitList.length;
-    this.state.habitList.forEach((habit) => {
-      if (habit.checked) {
-        pass++;
-      }
-    });
-    let success = pass/total * 100;
-    return success;
-  }
-
-  render() {
-    console.log(this.state.habitList)
-    console.log(this.state.habitList.length)
-    if (this.state.isLoaded) {
-      return (
-        <div>
-          <div id="nav">
-            <h1 id="title">Resolute</h1>
-            <h3 className="nav-items">reflection</h3>
-            <h3 className="nav-items">performance</h3>
-            <h3 className="nav-items">account</h3>
-          </div>
-          <div className="header">
-            <h3 className="header-title">Quote Of Day</h3>
-          </div>
-          <div id="quote-container">
-          <div className="quote-of-day">{this.state.quoteOfDay}</div>
-          </div>
-          <div className="header">
-            <h3 className="header-title">Today</h3>
-          </div>
-          <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
-          <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
-            <Modal.Header closeButton>
-              <strong>Why Are You Doing This?</strong>
-            </Modal.Header>
-            <Modal.Body>{this.state.habitList[this.state.index].statement}</Modal.Body>
-            <Modal.Footer>
-              <button onClick={this.handleCloseModal}>Close</button>
-            </Modal.Footer>
-          </Modal>
-        </div>
-      );
-    } else {
-      return (
-        <div>Loading...</div>
-      );
-    }
-  }
+  return (
+    <div>
+      <p>{quoteOfDay}</p>
+      <button onClick={() => setQuoteOfDay('this is a quote')}>add quote</button>
+    </div>
+  )
 }
+
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       habitList: [],
+//       isLoaded: false,
+//       showModal: false,
+//       index: 0,
+//       quoteOfDay: ''
+//     }
+//     this.countSuccessRate = this.countSuccessRate.bind(this);
+//     this.handleCheckMark = this.handleCheckMark.bind(this);
+//     this.handleCrossMark = this.handleCrossMark.bind(this);
+//     this.handleShowModal = this.handleShowModal.bind(this);
+//     this.handleCloseModal = this.handleCloseModal.bind(this);
+//   }
+
+//   componentDidMount() {
+//     axios.get('/api/habits')
+//       .then((response) => {
+//         this.setState({
+//           habitList: response.data,
+//           isLoaded: true
+//         })
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       });
+//     axios.get('https://quotes.rest/qod?category=inspire&language=en')
+//       .then((response) => {
+//         this.setState({
+//           quoteOfDay: response.data.contents.quotes[0].quote
+//         })
+//         console.log(this.state.quoteOfDay)
+//       })
+//       .catch((error) => {
+//         console.error(error)
+//       })
+//   }
+
+//   handleShowModal() {
+//     this.setState({
+//       showModal: true
+//     })
+//   }
+
+//   handleCloseModal() {
+//     this.setState({
+//       showModal: false
+//     })
+//   }
+
+//   handleCheckMark(index) {
+//     this.state.habitList[index].checked = true;
+//     this.state.habitList[index].streak++;
+//     this.setState({
+//       habitList: this.state.habitList
+//     });
+//   }
+
+//   handleCrossMark(index) {
+//     this.state.habitList[index].checked = false;
+//     this.state.habitList[index].streak--;
+//     this.setState({
+//       habitList: this.state.habitList,
+//       index: index
+//     });
+//     if (this.state.habitList[index].streak <= -2) {
+//       this.handleShowModal();
+//     }
+//   }
+
+//   countSuccessRate() {
+//     let pass = 0;
+//     let total = this.state.habitList.length;
+//     this.state.habitList.forEach((habit) => {
+//       if (habit.checked) {
+//         pass++;
+//       }
+//     });
+//     let success = pass/total * 100;
+//     return success;
+//   }
+
+//   render() {
+//     console.log(this.state.habitList)
+//     console.log(this.state.habitList.length)
+//     if (this.state.isLoaded) {
+//       return (
+//         <div>
+//           <div id="nav">
+//             <h1 id="title">Resolute</h1>
+//             <h3 className="nav-items">reflection</h3>
+//             <h3 className="nav-items">performance</h3>
+//             <h3 className="nav-items">account</h3>
+//           </div>
+//           <div className="header">
+//             <h3 className="header-title">Quote Of Day</h3>
+//           </div>
+//           <div id="quote-container">
+//           <div className="quote-of-day">{this.state.quoteOfDay}</div>
+//           </div>
+//           <div className="header">
+//             <h3 className="header-title">Today</h3>
+//           </div>
+//           <HabitList habits={this.state.habitList} successCompute={this.countSuccessRate} handleCheckMark={this.handleCheckMark} handleCrossMark={this.handleCrossMark}/>
+//           <Modal show={this.state.showModal} onHide={this.handleCloseModal} centered >
+//             <Modal.Header closeButton>
+//               <strong>Why Are You Doing This?</strong>
+//             </Modal.Header>
+//             <Modal.Body>{this.state.habitList[this.state.index].statement}</Modal.Body>
+//             <Modal.Footer>
+//               <button onClick={this.handleCloseModal}>Close</button>
+//             </Modal.Footer>
+//           </Modal>
+//         </div>
+//       );
+//     } else {
+//       return (
+//         <div>Loading...</div>
+//       );
+//     }
+//   }
+// }
 
 export default App;
 
