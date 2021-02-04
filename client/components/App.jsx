@@ -10,12 +10,36 @@ const App = () => {
   const [index, setIndex] = useState(0);
   const [quoteOfDay, setQuoteOfDay] = useState('');
 
-  return (
-    <div>
-      <p>{quoteOfDay}</p>
-      <button onClick={() => setQuoteOfDay('this is a quote')}>add quote</button>
-    </div>
-  )
+  console.log('this is your list length: ', habitList.length);
+
+  if (isLoaded) {
+    return (
+      <div>
+        <div id="nav">
+          <h1 id="title">Resolute</h1>
+          <h3 className="nav-items">reflection</h3>
+          <h3 className="nav-items">performance</h3>
+          <h3 className="nav-items">account</h3>
+        </div>
+        <div className="header">
+          <h3 className="header-title">Quote Of Day</h3>
+        </div>
+        <div id="quote-container">
+          <div className="quote-of-day">{quoteOfDay}</div>
+        </div>
+        <div className="header">
+          <h3 className="header-title">Today</h3>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h2>Loading...</h2>
+        <button onClick={() => setIsLoaded(true)}>Load</button>
+      </div>
+    );
+  }
 }
 
 // class App extends React.Component {
