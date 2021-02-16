@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HabitList from './HabitList.jsx';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
@@ -11,6 +11,16 @@ const App = () => {
   const [quoteOfDay, setQuoteOfDay] = useState('');
 
   console.log('this is your list length: ', habitList.length);
+  useEffect(() => {
+    axios.get('/api/habits')
+      .then((response) => {
+        setHabitList(response.data);
+        setIsLoaded(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  });
 
   if (isLoaded) {
     return (
