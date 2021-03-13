@@ -43,6 +43,31 @@ const App = () => {
     return success;
   }
 
+  function handleShowModal() {
+    setShowModal(true);
+  }
+
+  function handleCloseModal() {
+    setShowModal(false);
+  }
+
+  function handleCheckMark(index) {
+  habitList[index].checked = true;
+  habitList[index].streak++;
+  setHabitList(habitList);
+}
+
+  function handleCrossMark(index) {
+    habitList[index].checked = false;
+    habitList[index].streak--;
+    setHabitList(habitList);
+    setIndex(index);
+
+    if (habitList[index].streak <= -2) {
+      this.handleShowModal();
+    }
+  }
+
   if (isLoaded) {
     return (
       <div>
@@ -61,7 +86,16 @@ const App = () => {
         <div className="header">
           <h3 className="header-title">Today</h3>
         </div>
-        <HabitList habits={habitList} successCompute={countSuccessRate}/>
+        <HabitList habits={habitList} successCompute={countSuccessRate} handleCheckMark={handleCheckMark} handleCrossMark={handleCrossMark}/>
+        <Modal show={showModal} onHide={handleCloseModal} centered >
+          <Modal.Header closeButton>
+            <strong>Why Are You Doing This?</strong>
+          </Modal.Header>
+          <Modal.Body>{habitList[index].statement}</Modal.Body>
+          <Modal.Footer>
+            <button onClick={handleCloseModal}>Close</button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   } else {
