@@ -64,7 +64,7 @@ const App = () => {
     setIndex(index);
 
     if (habitList[index].streak <= -2) {
-      this.handleShowModal();
+      handleShowModal();
     }
   }
 
