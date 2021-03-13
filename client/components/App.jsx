@@ -20,7 +20,7 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       })
-  });
+  }, []);
 
   if (isLoaded) {
     return (
