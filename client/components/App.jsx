@@ -10,7 +10,6 @@ const App = () => {
   const [index, setIndex] = useState(0);
   const [quoteOfDay, setQuoteOfDay] = useState('');
 
-  console.log('this is your list length: ', habitList.length);
   useEffect(() => {
     axios.get('/api/habits')
       .then((response) => {
@@ -21,6 +20,16 @@ const App = () => {
         console.log(error);
       })
   }, [habitList.length]);
+
+  useEffect(() => {
+    axios.get('https://quotes.rest/qod?category=inspire&language=en')
+      .then((response) => {
+        setQuoteOfDay(response.data.contents.quotes[0].quote)
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  });
 
   if (isLoaded) {
     return (
