@@ -31,6 +31,18 @@ const App = () => {
       })
   });
 
+  function countSuccessRate() {
+    let pass = 0;
+    let total = habitList.length;
+    habitList.forEach((habit) => {
+      if (habit.checked) {
+        pass++;
+      }
+    });
+    let success = pass/total * 100;
+    return success;
+  }
+
   if (isLoaded) {
     return (
       <div>
@@ -49,6 +61,7 @@ const App = () => {
         <div className="header">
           <h3 className="header-title">Today</h3>
         </div>
+        <HabitList habits={habitList} successCompute={countSuccessRate}/>
       </div>
     );
   } else {
