@@ -46,7 +46,6 @@ const App = () => {
     return (
       <div>
         <h2>Loading...</h2>
-        <button onClick={() => setIsLoaded(true)}>Load</button>
       </div>
     );
   }
