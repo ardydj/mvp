@@ -20,7 +20,7 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       })
-  }, []);
+  }, [habitList.length]);
 
   if (isLoaded) {
     return (
