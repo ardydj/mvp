@@ -18,3 +18,4 @@ app.get('/api/habits', (req, res) => {
 app.listen(port, () => {
   console.log(`server listening at port ${port}`)
 })
+
